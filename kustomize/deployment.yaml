@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monero
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monero
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: monero
+    spec:
+      containers:
+      - args:
+        - --non-interactive
+        - --restricted-rpc
+        - --rpc-bind-ip=0.0.0.0
+        - --confirm-external-bind
+        - --data-dir=/var/data
+        image: tkeber/monerod-docker:v0.17.2.0
+        imagePullPolicy: IfNotPresent
+        name: monero
+        volumeMounts:
+        - mountPath: /var/data
+          name: data
+      nodeSelector:
+        kubernetes.io/arch: arm
+      tolerations:
+      - key: class
+        operator: Equal
+        value: Gen2
+        effect: NoSchedule
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: monero
