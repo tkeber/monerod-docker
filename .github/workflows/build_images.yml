@@ -50,7 +50,6 @@ jobs:
             VERSION=${{ env.VERSION }}
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64,linux/armhf
-#          platforms: linux/amd64,linux/arm64,linux/armhf
+          platforms: linux/amd64,linux/armhf,linux/arm64
           push: true
           tags: ${{ steps.prep.outputs.tags }}

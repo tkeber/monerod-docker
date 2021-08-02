@@ -1,7 +1,7 @@
 FROM debian:buster-slim AS downloader
 ARG VERSION=v0.17.2.0
 
-RUN apt update && apt install -y curl gpg bzip2
+RUN apt update && apt install -y curl gpg bzip2 openssl
 COPY download_binary.sh binaryfate.asc ./
 RUN bash download_binary.sh $VERSION
 
