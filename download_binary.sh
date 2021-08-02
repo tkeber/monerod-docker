@@ -14,7 +14,7 @@ x86_64)
   archive="monero-linux-x64-$version"
 esac
 
-dir="https://downloads.getmonero.org/cli/"
+dir="https://downloads.getmonero.org/cli"
 
 gpg --import binaryfate.asc 
 
