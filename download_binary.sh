@@ -18,8 +18,8 @@ dir="https://downloads.getmonero.org/cli"
 
 gpg --import binaryfate.asc 
 
-curl -o hashes.txt https://www.getmonero.org/downloads/hashes.txt
-curl -o "$archive.tar.bz2" "$dir/$archive.tar.bz2"
+curl -sko hashes.txt https://www.getmonero.org/downloads/hashes.txt
+curl -sko "$archive.tar.bz2" "$dir/$archive.tar.bz2"
 
 gpg --verify hashes.txt
 
