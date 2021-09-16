@@ -21,7 +21,7 @@ spec:
         - --rpc-bind-ip=0.0.0.0
         - --confirm-external-bind
         - --data-dir=/home/monero/.bitmonero
-        image: tkeber/monerod-docker:v0.17.2.0
+        image: tkeber/monerod-docker:v0.17.2.3
         imagePullPolicy: IfNotPresent
         name: monero
         volumeMounts:
