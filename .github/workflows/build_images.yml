@@ -10,7 +10,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     env:
-      VERSION: "v0.17.2.0"
+      VERSION: "v0.17.2.3"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
